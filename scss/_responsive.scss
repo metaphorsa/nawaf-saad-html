@@ -41,6 +41,12 @@
 }
 
 @media (min-width: 768px) {
+    .text-md-start {
+        text-align: start !important;
+    }
+    .list-account-address {
+        grid-template-columns: repeat(2,1fr);
+    }
     .page-404-wrap {
         padding: 85px 0 64px;
         .image {
@@ -949,7 +955,7 @@
                 right: 8%;
                 top: unset;
                 transform: unset;
-                text-align: left;
+                text-align: start;
                 .heading {
                     font-size: 32px;
                     line-height: 38.4px;
@@ -1410,6 +1416,17 @@
     }
 }
 @media (min-width: 1150px) {
+    .wrap-lookbook-hover {
+        .bundle-pin-item {
+            cursor: pointer;
+        }
+        .bundle-hover-item {
+            @include transition3();
+            &.no-hover {
+                opacity: 0.3 ;
+            }
+        }
+    }
     .page-404-wrap {
         padding: 100px 0 75px;
         .image {
@@ -2970,6 +2987,7 @@
             .footer-newsletter {
                 width: 100% !important;
                 border-right: 0 !important;
+                border-left: 0 !important;
                 padding: 0px 20px 0 0 !important;
             }
         }

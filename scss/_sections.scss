@@ -2652,6 +2652,12 @@
         }
     }
 }
+
+.list-account-address {
+    display: grid;
+    gap: 40px 30px;
+}
+
 .show-form-address,.edit-form-address{
     display: none;
 }
@@ -2940,3 +2946,4 @@
         margin-top: 16px;
     }
 }
+

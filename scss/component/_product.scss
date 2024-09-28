@@ -1216,6 +1216,7 @@ animation: tf-ani-tada 2s infinite;
 // card product item
 .card-product {
     @include transition3;
+    text-align: start;
     .product-img {
         display: flex;
         width: 100%;

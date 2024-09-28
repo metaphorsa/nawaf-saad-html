@@ -27,6 +27,7 @@
  * contact form
  * subscribe mailchimp
  * auto popup
+ * RTL
 
  */
 
@@ -801,12 +802,56 @@
     $(".btn-hide-address").click(function () {
       $(".show-form-address").hide();
     });
+
     $(".btn-edit-address").click(function () {
-      $(".edit-form-address").toggle();
+      $(this).closest(".account-address-item").find(".edit-form-address").toggle();
     });
     $(".btn-hide-edit-address").click(function () {
-      $(".edit-form-address").hide();
+      $(this).closest(".account-address-item").find(".edit-form-address").hide();
     });
+  };
+  /* RTL
+  ------------------------------------------------------------------------------------- */
+  var RTL = function () {
+    if (localStorage.getItem("dir") === "rtl") {
+      $("html").attr("dir", "rtl");
+      $("body").addClass("rtl");
+      $('#toggle-rtl').text('ltr');
+      $(".tf-slideshow .tf-btn,.view-all-demo .tf-btn, .pagination-link, .pagination-item").find(".icon").removeClass("icon-arrow-right").addClass("icon-arrow-left");    
+    } else {
+      $("html").attr("dir", "ltr");
+      $("body").removeClass("rtl");
+      $('#toggle-rtl').text('rtl');      
+      
+    }
+    $("#toggle-rtl").on("click", function() {
+      if ($("html").attr("dir") === "rtl") {
+        localStorage.setItem("dir", "ltr"); 
+        $('#toggle-rtl').text('rtl');      
+
+      } else {
+        localStorage.setItem("dir", "rtl");
+        $('#toggle-rtl').text('ltr');      
+      }
+      location.reload();
+    });
+  };
+
+
+  /* hover_pin
+  -------------------------------------------------------------------------*/
+  var hover_pin = function () {
+    if ($(".wrap-lookbook-hover").length) {
+      $(".bundle-pin-item").on("mouseover", function () {
+        $(".bundle-hover-wrap").addClass("has-hover");
+        var $el = $('.' + this.id).show();
+        $('.bundle-hover-wrap .bundle-hover-item').not($el).addClass("no-hover");
+      });
+      $(".bundle-pin-item").on("mouseleave", function () {
+        $(".bundle-hover-wrap").removeClass("has-hover");
+        $(".bundle-hover-item").removeClass("no-hover");
+      });
+    }
   };
 
   // Dom Ready
@@ -843,6 +888,8 @@
     autoPopup();
     rangePrice();
     clickControl();
+    RTL();
+    hover_pin();
     new WOW().init();
   });
 })(jQuery);

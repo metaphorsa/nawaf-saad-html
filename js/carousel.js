@@ -1,3 +1,4 @@
+
 if ($(".tf-sw-top_bar").length > 0) {
   var preview = $(".tf-sw-top_bar").data("preview");
   var spacing = $(".tf-sw-top_bar").data("space");
@@ -41,6 +42,9 @@ if ($(".tf-sw-slideshow").length > 0) {
   var delay = $(".tf-sw-slideshow").data("delay");
   var speed = $(".tf-sw-slideshow").data("speed");
   var centered = $(".tf-sw-slideshow").data("centered");
+
+
+
   var swiper = new Swiper(".tf-sw-slideshow", {
     autoplay: {
       delay: delay,
@@ -76,6 +80,8 @@ if ($(".tf-sw-slideshow").length > 0) {
       },
     },
   });
+
+
 }
 
 if ($(".tf-sw-effect").length > 0) {
@@ -396,7 +402,7 @@ if ($(".tf-lookbook").length > 0) {
   var mobile = $(".tf-lookbook").data("mobile");
   var spacingLg = $(".tf-lookbook").data("space-lg");
   var spacingMd = $(".tf-lookbook").data("space-md");
-  var swiper = new Swiper(".tf-lookbook", {
+  var swiper1 = new Swiper(".tf-lookbook", {
     slidesPerView: mobile,
     spaceBetween: spacingMd,
     speed: 1000,
@@ -421,6 +427,10 @@ if ($(".tf-lookbook").length > 0) {
         direction: "vertical",
       },
     },
+  });
+  $(".swiper-button").click(function () {
+    var slideIndex = $(this).data("slide");
+    swiper1.slideTo(slideIndex,500,false);
   });
 }
 
